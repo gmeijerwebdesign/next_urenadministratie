@@ -3,3 +3,11 @@
 .layout {
   background: #f3f3f4;
 }
+
+.auth-input-bar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  padding: 0.5rem;
+  width: 300px;
+  color: #969696;
+  outline: none;
+}
