@@ -3,7 +3,8 @@ import { MdOutlineLogout } from "react-icons/md";
 import { FaKey } from "react-icons/fa";
 import { FaCircleInfo } from "react-icons/fa6";
 import { RiAdminFill } from "react-icons/ri";
-export default function SideBar({ session }) {
+import { signOut } from "next-auth/react";
+export default function SideBar({ session, onNavigate }) {
   const menuItems = [
     { label: "Urenregistratie", icon: <SlCalender /> },
     { label: "Verlofoverzicht", icon: <FaCircleInfo /> },
@@ -23,6 +24,13 @@ export default function SideBar({ session }) {
           <div
             key={index}
             className="flex items-center gap-3 hover:bg-[#25333f] px-4 py-2 rounded cursor-pointer"
+            onClick={() => {
+              if (item.label === "Uitloggen") {
+                signOut({ callbackUrl: "/login" });
+              } else {
+                onNavigate(item.label);
+              }
+            }}
           >
             {item.icon}
             <p>{item.label}</p>
