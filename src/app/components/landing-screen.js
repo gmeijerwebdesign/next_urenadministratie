@@ -1,12 +1,15 @@
 "use client";
 import { useSession } from "next-auth/react";
+import SideBar from "./sidebar";
+import Main from "./main";
 
 export default function LandingScreen() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">welkom, {session.user.name}</h1>
+    <div className="flex h-screen">
+      <SideBar />
+      <Main name={session?.user?.name || "Gebruiker"} />
     </div>
   );
 }
