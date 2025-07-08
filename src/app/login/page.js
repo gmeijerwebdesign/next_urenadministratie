@@ -19,8 +19,7 @@ export default function Login() {
     });
 
     if (result.ok) {
-      // router.push("/dashboard"); // of waar je ook heen wilt
-      alert("succesfully loggedcin ");
+      router.push("/"); // of waar je ook heen wilt
     } else {
       alert("Login mislukt");
     }
