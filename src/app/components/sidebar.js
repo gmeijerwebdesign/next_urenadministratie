@@ -11,10 +11,13 @@ export default function SideBar() {
     { label: "Uitloggen", icon: <MdOutlineLogout /> },
   ];
   return (
-    <div className="hidden md:flex p-6  justify-center w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px] ">
-      <div className="flex flex-col pt-11 gap-7">
+    <div className="hidden md:flex pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
+      <div className="flex flex-col gap-7 w-full">
         {menuItems.map((item, index) => (
-          <div key={index} className="flex items-center gap-3">
+          <div
+            key={index}
+            className="flex items-center gap-3 hover:bg-[#25333f] px-4 py-2 rounded cursor-pointer"
+          >
             {item.icon}
             <p>{item.label}</p>
           </div>
