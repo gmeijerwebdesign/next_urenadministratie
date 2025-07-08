@@ -11,8 +11,8 @@ export default function SideBar() {
     { label: "Uitloggen", icon: <MdOutlineLogout /> },
   ];
   return (
-    <div className="hidden md:flex pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
-      <div className="flex flex-col gap-7 w-full">
+    <div className="hidden md:flex h-screen pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
+      <div className="flex flex-col gap-7 w-full ">
         {menuItems.map((item, index) => (
           <div
             key={index}

@@ -7,7 +7,7 @@ export default function LandingScreen() {
   const { data: session } = useSession();
 
   return (
-    <div className="flex h-screen">
+    <div className="flex ">
       <SideBar />
       <Main name={session?.user?.name || "Gebruiker"} />
     </div>
