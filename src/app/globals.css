@@ -11,3 +11,11 @@
   color: #969696;
   outline: none;
 }
+.admin-input-bar {
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  padding: 0.5rem;
+  width: 300px;
+  color: #969696;
+  outline: none;
+}
