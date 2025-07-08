@@ -16,6 +16,7 @@ async function checkUserInDB(credentials) {
       return {
         id: user.MEDEWERKER_ID,
         name: user.INLOG_GEBRUIKERSNAAM,
+        role: user.FUNCTIENAAM,
       };
     }
     return null;
@@ -40,8 +41,17 @@ const handler = NextAuth({
     signIn: "/login",
   },
   callbacks: {
+    async jwt({ token, user }) {
+      // Voeg user data toe aan token bij eerste login
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
+    },
     async session({ session, token }) {
-      session.user.id = token.sub;
+      session.user.id = token.id;
+      session.user.role = token.role; // <-- hier gebruik je het
       return session;
     },
   },

@@ -2,7 +2,8 @@ import { SlCalender } from "react-icons/sl";
 import { MdOutlineLogout } from "react-icons/md";
 import { FaKey } from "react-icons/fa";
 import { FaCircleInfo } from "react-icons/fa6";
-export default function SideBar() {
+import { RiAdminFill } from "react-icons/ri";
+export default function SideBar({ session }) {
   const menuItems = [
     { label: "Urenregistratie", icon: <SlCalender /> },
     { label: "Verlofoverzicht", icon: <FaCircleInfo /> },
@@ -10,6 +11,11 @@ export default function SideBar() {
     { label: "Instructie", icon: <FaCircleInfo /> },
     { label: "Uitloggen", icon: <MdOutlineLogout /> },
   ];
+
+  if (session?.user?.role === "Manager") {
+    menuItems.push({ label: "admin", icon: <RiAdminFill /> });
+  }
+
   return (
     <div className="hidden md:flex h-screen pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
       <div className="flex flex-col gap-7 w-full ">

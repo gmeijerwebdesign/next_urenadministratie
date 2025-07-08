@@ -8,7 +8,7 @@ export default function LandingScreen() {
 
   return (
     <div className="flex ">
-      <SideBar />
+      <SideBar session={session} />
       <Main name={session?.user?.name || "Gebruiker"} />
     </div>
   );
