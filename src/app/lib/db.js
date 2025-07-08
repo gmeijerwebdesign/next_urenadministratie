@@ -2,10 +2,10 @@
 import sql from "mssql";
 
 const config = {
-  user: "Test",
-  password: "test",
-  server: "85.214.243.153",
-  database: "Cyclus_Data",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_NAME,
   options: {
     encrypt: false,
     trustServerCertificate: true,
