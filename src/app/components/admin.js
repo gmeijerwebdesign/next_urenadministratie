@@ -1,8 +1,10 @@
 export default function Admin() {
   return (
     <div className="p-4 bg-[#f3f3f4] h-[60%] w-full max-h-full">
-      <h1 className="text-2xl font-semibold mb-4">Voeg een medewerker toe</h1>
-      <div className="flex items-center">
+      <h1 className="text-xl text-gray-500 font-bold tracking-tight">
+        Voeg een medewerker toe
+      </h1>
+      <div className="flex items-center py-4">
         <form className="flex flex-col gap-11">
           <div className="flex gap-11">
             <div className="flex flex-col">
