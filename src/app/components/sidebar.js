@@ -18,7 +18,7 @@ export default function SideBar({ session, onNavigate }) {
   }
 
   return (
-    <div className="hidden md:flex h-screen pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
+    <div className="hidden lg:flex h-screen pt-11 w-[15%] bg-[#2f4050] text-[#A7B1C2] font-medium text-[13px]">
       <div className="flex flex-col gap-7 w-full ">
         {menuItems.map((item, index) => (
           <div
