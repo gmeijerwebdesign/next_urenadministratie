@@ -1,71 +1,90 @@
+import { useState, useEffect } from "react";
 import { TiArrowBack } from "react-icons/ti";
-
-const dienstArr = ["Developer", "Engineer", "Schoonmaker"];
 
 export default function FormModal({ selectedTimeBox, setIsOpen }) {
   const e = selectedTimeBox.entry;
-  const eID = selectedTimeBox.index;
+
+  const [formData, setFormData] = useState({
+    naam: "",
+    serienummer: "",
+    opmerking: "",
+    aantal: 0,
+  });
+
+  useEffect(() => {
+    if (e) {
+      setFormData({
+        naam: e.naam || "",
+        serienummer: e.serienummer || "",
+        opmerking: e.opmerking || "",
+        aantal: e.aantal || 0,
+      });
+    }
+  }, [e]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "aantal" ? parseInt(value) : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Gewijzigde data:", formData); // Hier komt straks je database logica
+    setIsOpen(false);
+  };
 
   return (
     <div className="bg-white shadow-2xl rounded-2xl p-6 w-[400px] space-y-4">
-      {/* Terugknop */}
       <div className="flex items-center justify-between mb-4">
         <TiArrowBack
           className="text-2xl cursor-pointer text-gray-600 hover:text-black transition"
           onClick={() => setIsOpen(false)}
         />
-        <h2 className="text-xl font-bold text-gray-700">Bewerk tijdvak</h2>
+        <h2 className="text-xl font-bold text-gray-700">Bewerk product</h2>
       </div>
 
-      {/* Datum info */}
-      <div className="text-center text-gray-600">
-        <p className="text-lg font-semibold">
-          {e.date} - {e.day}
-        </p>
-      </div>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <input
+          name="naam"
+          type="text"
+          value={formData.naam}
+          onChange={handleChange}
+          className="w-full rounded-lg p-2 border border-gray-300"
+          placeholder="Naam"
+        />
+        <input
+          name="serienummer"
+          type="text"
+          value={formData.serienummer}
+          onChange={handleChange}
+          className="w-full rounded-lg p-2 border border-gray-300"
+          placeholder="Serienummer"
+        />
+        <input
+          name="opmerking"
+          type="text"
+          value={formData.opmerking}
+          onChange={handleChange}
+          className="w-full rounded-lg p-2 border border-gray-300"
+          placeholder="Opmerking"
+        />
+        <input
+          name="aantal"
+          type="number"
+          value={formData.aantal}
+          onChange={handleChange}
+          className="w-full rounded-lg p-2 border border-gray-300"
+          placeholder="Aantal"
+        />
 
-      {/* Formulier */}
-      <form className="space-y-4">
-        {/* Uren gewerkt */}
-        <div>
-          <label htmlFor="hours" className="block text-sm text-gray-600 mb-1">
-            Uren gewerkt
-          </label>
-          <input
-            type="number"
-            id="hours"
-            className="w-full rounded-lg p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Bijv. 8"
-          />
-        </div>
-
-        {/* Dienstverband */}
-        <div>
-          <label
-            htmlFor="dienstverband"
-            className="block text-sm text-gray-600 mb-1"
-          >
-            Dienstverband
-          </label>
-          <select
-            id="dienstverband"
-            className="w-full rounded-lg p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            defaultValue={e.dienstverband}
-          >
-            {dienstArr.map((option, i) => (
-              <option key={i} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Actieknoppen */}
         <div className="flex justify-end space-x-2 pt-2">
           <button
             type="button"
-            className="px-4 py-2 bg-gray-200 rounded-lg text-gray-700 hover:bg-gray-300"
             onClick={() => setIsOpen(false)}
+            className="px-4 py-2 bg-gray-200 rounded-lg text-gray-700 hover:bg-gray-300"
           >
             Annuleren
           </button>
