@@ -6,7 +6,7 @@ import { RiAdminFill } from "react-icons/ri";
 import { signOut } from "next-auth/react";
 export default function SideBar({ session, onNavigate }) {
   const menuItems = [
-    { label: "Urenregistratie", icon: <SlCalender /> },
+    { label: "Inventarisadministratie", icon: <SlCalender /> },
     { label: "Verlofoverzicht", icon: <FaCircleInfo /> },
     { label: "Wachtwoord Wijzigen", icon: <FaKey /> },
     { label: "Instructie", icon: <FaCircleInfo /> },

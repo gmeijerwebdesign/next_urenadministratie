@@ -5,7 +5,8 @@ import ProductTable from "./ProductTable";
 
 export default function Content() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedTimeBox, setSelectedTimeBox] = useState([]);
+  const [selectedTimeBox, setSelectedTimeBox] = useState(null);
+  const [mode, setMode] = useState(null);
   useEffect(() => {
     console.log(selectedTimeBox);
   }, [selectedTimeBox]);
@@ -19,12 +20,18 @@ export default function Content() {
         <ProductTable
           setIsOpen={setIsOpen}
           setSelectedTimeBox={setSelectedTimeBox}
+          mode={mode}
+          setMode={setMode}
         />
       </div>
       {/* FormModal */}
       {isOpen ? (
         <div className="fixed inset-0 flex items-center justify-center  z-50 ">
-          <FormModal selectedTimeBox={selectedTimeBox} setIsOpen={setIsOpen} />
+          <FormModal
+            selectedTimeBox={selectedTimeBox}
+            setIsOpen={setIsOpen}
+            mode={mode}
+          />
         </div>
       ) : null}
     </div>

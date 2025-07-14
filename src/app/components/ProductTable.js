@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 
 const products = [
@@ -17,7 +19,13 @@ const products = [
   },
 ];
 
-export default function ProductTable({ setSelectedTimeBox, setIsOpen }) {
+export default function ProductTable({
+  setSelectedTimeBox,
+  setIsOpen,
+  mode,
+  setMode,
+}) {
+
   return (
     <div className="p-4">
       {/* Tabel voor grotere schermen */}
@@ -46,6 +54,21 @@ export default function ProductTable({ setSelectedTimeBox, setIsOpen }) {
             </tr>
           </thead>
           <tbody>
+            {/* product toevoegen */}
+            <tr className="border-t hover:bg-gray-50 min-w-full ">
+              <td colSpan="6" className=" px-4 py-2 text-sm text-gray-700">
+                <div className="flex justify-end px-[50px] text-green-700">
+                  <FaPlus
+                    className="cursor-pointer"
+                    onClick={() => {
+                      setSelectedTimeBox(null); // Geen geselecteerd product
+                      setMode("add");
+                      setIsOpen(true);
+                    }}
+                  />
+                </div>
+              </td>
+            </tr>
             {products.map((product) => (
               <tr
                 key={product.product_id}
@@ -75,6 +98,7 @@ export default function ProductTable({ setSelectedTimeBox, setIsOpen }) {
                           entry: product,
                           index: product.product_id,
                         });
+                        setMode("edit");
                         setIsOpen(true);
                       }}
                     />
@@ -115,7 +139,17 @@ export default function ProductTable({ setSelectedTimeBox, setIsOpen }) {
             </div>
             <div className="flex justify-end">
               <button className="text-blue-500 hover:text-blue-700 transition duration-200">
-                <FiEdit size={20} />
+                <FiEdit
+                  size={20}
+                  onClick={() => {
+                    setSelectedTimeBox({
+                      entry: product,
+                      index: product.product_id,
+                    });
+                    setMode("edit");
+                    setIsOpen(true);
+                  }}
+                />
               </button>
             </div>
           </div>
