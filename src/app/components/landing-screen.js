@@ -2,7 +2,6 @@
 import { useSession } from "next-auth/react";
 import SideBar from "./sidebar";
 import Main from "./main";
-import Admin from "./admin"; // ← Zorg dat je een Admin component hebt
 import { useState } from "react";
 
 export default function LandingScreen() {
@@ -10,7 +9,7 @@ export default function LandingScreen() {
   const [currentNav, setCurrentNav] = useState("home");
 
   const handleNavigation = (nav) => {
-    setCurrentNav(nav.toLowerCase());
+    setCurrentNav(nav);
   };
 
   return (

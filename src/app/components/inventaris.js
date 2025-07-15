@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import TimeSheet from "./timesheet";
+import TimeSheet from "./subcomponents/timesheet";
 import FormModal from "./subcomponents/formModal";
-import ProductTable from "./ProductTable";
+import ProductTable from "./subcomponents/ProductTable";
 
 export default function Content() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTimeBox, setSelectedTimeBox] = useState(null);
   const [mode, setMode] = useState(null);
-  useEffect(() => {
-    console.log(selectedTimeBox);
-  }, [selectedTimeBox]);
+
   return (
     <div className="p-4 bg-[rgb(243,243,244)] w-full ">
       <h1 className=" text-xl text-gray-500 font-bold tracking-tight">
         Inventaris overzicht
       </h1>
       {/* box */}
-      <div className="p-6 ">
+      <div className="py-4 ">
         <ProductTable
           setIsOpen={setIsOpen}
           setSelectedTimeBox={setSelectedTimeBox}

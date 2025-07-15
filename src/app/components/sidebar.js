@@ -6,11 +6,19 @@ import { RiAdminFill } from "react-icons/ri";
 import { signOut } from "next-auth/react";
 export default function SideBar({ session, onNavigate }) {
   const menuItems = [
-    { label: "Inventarisadministratie", icon: <SlCalender /> },
-    { label: "Verlofoverzicht", icon: <FaCircleInfo /> },
-    { label: "Wachtwoord Wijzigen", icon: <FaKey /> },
-    { label: "Instructie", icon: <FaCircleInfo /> },
-    { label: "Uitloggen", icon: <MdOutlineLogout /> },
+    { label: "Inventarisadministratie", value: "home", icon: <SlCalender /> },
+    {
+      label: "Organisatiebeheer",
+      value: "Organisatiebeheer",
+      icon: <FaCircleInfo />,
+    },
+    {
+      label: "Wachtwoord Wijzigen",
+      value: "Wachtwoord Wijzigen",
+      icon: <FaKey />,
+    },
+    { label: "Instructie", value: "Instructie", icon: <FaCircleInfo /> },
+    { label: "Uitloggen", value: "logout", icon: <MdOutlineLogout /> },
   ];
 
   if (session?.user?.role === "Manager") {
@@ -18,17 +26,17 @@ export default function SideBar({ session, onNavigate }) {
   }
 
   return (
-    <div className="hidden lg:flex min-h-[100%] pt-11 w-[15%] bg-[#2f5031] text-[#A7B1C2] font-medium text-[13px]">
+    <div className="hidden lg:flex min-h-[100%] pt-11 w-[15%] bg-[#2f5031] text-[#e4e8ee] font-medium text-[12px]">
       <div className="flex flex-col gap-7 w-full ">
         {menuItems.map((item, index) => (
           <div
             key={index}
             className="flex items-center gap-3 hover:bg-[#25333f] px-4 py-2 rounded cursor-pointer"
             onClick={() => {
-              if (item.label === "Uitloggen") {
+              if (item.value === "logout") {
                 signOut({ callbackUrl: "/login" });
               } else {
-                onNavigate(item.label);
+                onNavigate(item.value);
               }
             }}
           >
