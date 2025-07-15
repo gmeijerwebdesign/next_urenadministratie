@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import TimeSheet from "./subcomponents/timesheet";
-import FormModal from "./subcomponents/formModal";
-import ProductTable from "./subcomponents/ProductTable";
+import FormModal from "../../utils/formModal.js";
+import ProductTable from "./ProductTable";
 
 export default function Content() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,8 +1,8 @@
-import Admin from "./admin";
-import Content from "./inventaris";
+import Admin from "./subcomponents/page-blocks/admin";
+import Content from "./subcomponents/page-blocks/inventaris";
 import Banner from "./subcomponents/banner";
 import Header from "./subcomponents/header";
-import Organisation from "./subcomponents/organisation";
+import Organisation from "./subcomponents/page-blocks/organisation";
 
 export default function Main({ name, currentNav }) {
   function renderContent(nav) {
