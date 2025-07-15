@@ -1,6 +1,6 @@
 export default function Admin() {
   return (
-    <div className="p-4 py-11 bg-[#f3f3f4] w-full ">
+    <div className="p-4  bg-[#f3f3f4] w-full ">
       <h1 className="text-xl text-gray-500 font-bold tracking-tight">
         Voeg een medewerker toe
       </h1>
