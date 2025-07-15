@@ -25,11 +25,10 @@ export default function ProductTable({
   mode,
   setMode,
 }) {
-
   return (
-    <div className="p-4">
+    <div>
       {/* Tabel voor grotere schermen */}
-      <div className="hidden md:block overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto ">
         <table className="min-w-full border border-gray-200 shadow rounded-lg">
           <thead className="bg-gray-100">
             <tr>
@@ -55,20 +54,20 @@ export default function ProductTable({
           </thead>
           <tbody>
             {/* product toevoegen */}
-            <tr className="border-t hover:bg-gray-50 min-w-full ">
-              <td colSpan="6" className=" px-4 py-2 text-sm text-gray-700">
-                <div className="flex justify-end px-[50px] text-green-700">
-                  <FaPlus
-                    className="cursor-pointer"
-                    onClick={() => {
-                      setSelectedTimeBox(null); // Geen geselecteerd product
-                      setMode("add");
-                      setIsOpen(true);
-                    }}
-                  />
-                </div>
+            <tr className="border-t hover:bg-gray-50">
+              <td className="px-4 py-2 text-sm text-gray-700" colSpan={5}></td>
+              <td className="px-4 py-2 text-center text-green-700">
+                <FaPlus
+                  className="cursor-pointer inline-block"
+                  onClick={() => {
+                    setSelectedTimeBox(null); // Geen geselecteerd product
+                    setMode("add");
+                    setIsOpen(true);
+                  }}
+                />
               </td>
             </tr>
+
             {products.map((product) => (
               <tr
                 key={product.product_id}
@@ -93,6 +92,7 @@ export default function ProductTable({
                   <button className="text-blue-500 hover:text-blue-700 transition duration-200">
                     <FiEdit
                       size={20}
+                      className="cursor-pointer"
                       onClick={() => {
                         setSelectedTimeBox({
                           entry: product,
@@ -141,6 +141,7 @@ export default function ProductTable({
               <button className="text-blue-500 hover:text-blue-700 transition duration-200">
                 <FiEdit
                   size={20}
+                  className="cursor-pointer"
                   onClick={() => {
                     setSelectedTimeBox({
                       entry: product,

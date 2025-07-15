@@ -5,7 +5,7 @@ import Header from "./subcomponents/header";
 
 export default function Main({ name, currentNav }) {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white min-h-screen h-screen overflow-auto">
       <Header name={name} />
       <Banner />
       {currentNav === "admin" ? <Admin name={name} /> : <Content />}

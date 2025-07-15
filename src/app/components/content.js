@@ -11,7 +11,7 @@ export default function Content() {
     console.log(selectedTimeBox);
   }, [selectedTimeBox]);
   return (
-    <div className="p-4 bg-[rgb(243,243,244)] h-[70%] w-full  max-h-full">
+    <div className="p-4 bg-[rgb(243,243,244)] w-full ">
       <h1 className=" text-xl text-gray-500 font-bold tracking-tight">
         Inventaris overzicht
       </h1>
