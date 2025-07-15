@@ -1,9 +1,9 @@
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineLogout } from "react-icons/md";
-import { FaKey } from "react-icons/fa";
 import { FaCircleInfo } from "react-icons/fa6";
 import { RiAdminFill } from "react-icons/ri";
 import { signOut } from "next-auth/react";
+import { IoMdSettings } from "react-icons/io";
 export default function SideBar({ session, onNavigate }) {
   const menuItems = [
     { label: "Inventarisadministratie", value: "home", icon: <SlCalender /> },
@@ -13,16 +13,16 @@ export default function SideBar({ session, onNavigate }) {
       icon: <FaCircleInfo />,
     },
     {
-      label: "Wachtwoord Wijzigen",
-      value: "Wachtwoord Wijzigen",
-      icon: <FaKey />,
+      label: "Settings",
+      value: "Settings",
+      icon: <IoMdSettings />,
     },
-    { label: "Instructie", value: "Instructie", icon: <FaCircleInfo /> },
+
     { label: "Uitloggen", value: "logout", icon: <MdOutlineLogout /> },
   ];
 
   if (session?.user?.role === "Manager") {
-    menuItems.push({ label: "admin", icon: <RiAdminFill /> });
+    menuItems.push({ label: "admin", value: "admin", icon: <RiAdminFill /> });
   }
 
   return (

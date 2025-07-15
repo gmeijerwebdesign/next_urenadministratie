@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import FormModal from "../../utils/formModal.js";
-import ProductTable from "./ProductTable";
+import FormModal from "../utils/formModal.js";
+import ProductTable from "./ProductTable.js";
 
 export default function Content() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,8 +1,9 @@
-import Admin from "./subcomponents/page-blocks/admin";
-import Content from "./subcomponents/page-blocks/inventaris";
-import Banner from "./subcomponents/banner";
-import Header from "./subcomponents/header";
-import Organisation from "./subcomponents/page-blocks/organisation";
+import Admin from "./page-blocks/admin.js";
+import Content from "./page-blocks/inventaris.js";
+import Banner from "./subcomponents/banner.js";
+import Header from "./subcomponents/header.js";
+import Organisation from "./page-blocks/organisation.js";
+import Settings from "./page-blocks/settings.js";
 
 export default function Main({ name, currentNav }) {
   function renderContent(nav) {
@@ -11,8 +12,8 @@ export default function Main({ name, currentNav }) {
         return <Admin name={name} />;
       case "Organisatiebeheer":
         return <Organisation name={name} />;
-      case "Wachtwoord Wijzigen":
-        return <div>Wachtwoord wijzigen</div>;
+      case "Settings":
+        return <Settings name={name} />;
       case "Instructie":
         return <div>Instructiepagina</div>;
       default:

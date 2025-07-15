@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import SideBar from "./sidebar";
+import SideBar from "./utils/sidebar";
 import Main from "./main";
 import { useState } from "react";
 
